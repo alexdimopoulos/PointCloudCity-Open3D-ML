@@ -1,0 +1,54 @@
+dataset:
+  name: SemanticKITTI_PCC
+  dataset_path:  /data/PCC_Open3DML/dev_repo/skitti_PCC
+  cache_dir: ./logs/cache
+  class_weights: [3745937, 158410323, 52152331, 45737069, 4095093, 1861458, 1261051,
+  260402, 242560, 2325584, 1845428, 1365698, 856921, 555396, 16565622, 
+  10325419, 6727019, 221218, 3855813]
+  test_result_folder: ./test
+  test_split: ['31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', 
+  '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56']
+  training_split: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',
+  '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
+  all_split: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',
+  '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31',
+  '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48',
+  '49', '50', '51', '52', '53', '54', '55', '56']
+  validation_split: ['30']
+  use_cache: true
+  sampler:
+    name: 'SemSegRandomSampler'
+model:
+  name: RandLANet
+  batcher: DefaultBatcher
+  ckpt_path: # path/to/your/checkpoint
+  num_neighbors: 16
+  num_layers: 4
+  num_points: 45056
+  num_classes: 19
+  ignored_label_inds: [0]
+  sub_sampling_ratio: [4, 4, 4, 4]
+  in_channels: 3
+  dim_features: 8
+  dim_output: [16, 64, 128, 256]
+  grid_size: 0.06
+  augment:
+    recenter:
+      dim: [0, 1]
+pipeline:
+  name: SemanticSegmentation
+  optimizer:
+    lr: 0.001
+  batch_size: 4
+  main_log_dir: ./logs
+  max_epoch: 100
+  save_ckpt_freq: 5
+  scheduler_gamma: 0.9886
+  test_batch_size: 1
+  train_sum_dir: train_log
+  val_batch_size: 2
+  summary:
+    record_for: []
+    max_pts:
+    use_reference: false
+    max_outputs: 1
