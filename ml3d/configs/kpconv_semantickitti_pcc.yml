@@ -1,6 +1,6 @@
 dataset:
   name: SemanticKITTI_PCC
-  dataset_path: /data/PCC_Open3DML/dev_repo/skitti_PCC
+  dataset_path: #path to dataset pcc_skitti
   class_weights: [3745937, 158410323, 52152331, 45737069, 4095093, 1861458, 1261051, 260402, 242560, 2325584, 1845428, 1365698, 856921, 555396, 16565622, 10325419, 6727019, 221218, 3855813]
   test_result_folder: ./test
   test_split: ['31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56']
