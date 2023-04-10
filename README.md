@@ -387,6 +387,7 @@ and the MD5 checksum file [model_weights.md5](https://storage.googleapis.com/ope
 
 The following is a list of datasets for which we provide dataset reader classes.
 
+* Point Cloud City ([project page](https://www.nist.gov/ctl/pscr/funding-opportunities/past-funding-opportunities/psiap-point-cloud-city))
 * SemanticKITTI ([project page](http://semantic-kitti.org/))
 * Toronto 3D ([github](https://github.com/WeikaiTan/Toronto-3D))
 * Semantic 3D ([project-page](http://www.semantic3d.net/))
