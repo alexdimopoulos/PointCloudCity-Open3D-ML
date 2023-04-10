@@ -1,7 +1,7 @@
 
 <p align="center">
 <img src="https://www.npstc.org/images/NIST/NIST_Logo_3257x676.jpg" 
-width="392" />
+width="420" />
 <span style="font-size: 220%"><b>Point Cloud City</b></span>
 <br />
 <img src="https://raw.githubusercontent.com/isl-org/Open3D/master/docs/_static/open3d_logo_horizontal.png" width="320" />
