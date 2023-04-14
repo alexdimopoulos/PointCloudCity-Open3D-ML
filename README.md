@@ -1,6 +1,8 @@
+![Screenshot](https://github.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/master/data/nist_pscr_logo.jpg)
+
 
 <p align="center">
-<img src="https://www.npstc.org/images/NIST/NIST_Logo_3257x676.jpg" 
+<img src="https://github.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/master/data/nist_pscr_logo.jpg" 
 width="420" />
 <span style="font-size: 220%"><b>Point Cloud City</b></span>
 <br />
