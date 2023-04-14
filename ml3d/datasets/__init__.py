@@ -1,5 +1,6 @@
 """I/O, attributes, and processing for different datasets."""
 
+from .semantickitti_PCC import SemanticKITTI_PCC
 from .semantickitti import SemanticKITTI
 from .s3dis import S3DIS
 from .parislille3d import ParisLille3D
@@ -23,7 +24,7 @@ from .sunrgbd import SunRGBD
 from .matterport_objects import MatterportObjects
 
 __all__ = [
-    'SemanticKITTI', 'S3DIS', 'Toronto3D', 'ParisLille3D', 'Semantic3D',
+    'SemanticKITTI_PCC', 'SemanticKITTI', 'S3DIS', 'Toronto3D', 'ParisLille3D', 'Semantic3D',
     'Custom3D', 'utils', 'augment', 'samplers', 'KITTI', 'Waymo', 'NuScenes',
     'Lyft', 'ShapeNet', 'SemSegRandomSampler', 'InferenceDummySplit',
     'SemSegSpatiallyRegularSampler', 'Argoverse', 'Scannet', 'SunRGBD',
