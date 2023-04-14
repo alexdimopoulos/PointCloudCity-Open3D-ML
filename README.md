@@ -1,10 +1,7 @@
-![Screenshot](https://github.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/master/data/nist_pscr_logo.jpg)
-
-
 <p align="center">
-<img src="https://github.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/master/data/nist_pscr_logo.jpg" 
+<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/nist_pscr_logo.jpg" 
 width="420" />
-<span style="font-size: 220%"><b>Point Cloud City</b></span>
+<span style="font-size: 220%"><b>Point Cloud City on</b></span>
 <br />
 <img src="https://raw.githubusercontent.com/isl-org/Open3D/master/docs/_static/open3d_logo_horizontal.png" width="320" />
 <span style="font-size: 220%"><b>ML</b></span>
