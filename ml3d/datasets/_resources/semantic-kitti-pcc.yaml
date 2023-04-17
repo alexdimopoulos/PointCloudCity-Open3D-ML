@@ -1,0 +1,192 @@
+# This file is covered by the LICENSE file in the root of this project.
+labels:
+  0: 'unassigned'
+  1: 'stairway'
+  2: 'door'
+  3: 'window'
+  4: 'pillar'
+  5: 'building entrance-exit'
+  6: 'elevator'
+  7: 'server equipment'
+  8: 'emergency lighting'
+  9: 'sprinkler'
+  10: 'fire door'
+  11: 'sign exit'
+  12: 'extinguisher'
+  13: 'utility shut offs - water'
+  14: 'mechanical equipment'
+  15: 'smoke detector'
+  16: 'fire suppression systems - sprinkler cover/escutcheon'
+  17: 'utility shutoffs - electric'
+  18: 'IFAK'
+  19: 'fire alarm'
+color_map: # rgb
+  0: [0, 0, 0]
+  1: [255, 0, 0]
+  2: [100, 150, 245]
+  3: [100, 230, 245]
+  4: [100, 80, 250]
+  5: [30, 60, 150]
+  6: [0, 0, 255]
+  7: [80, 30, 180]
+  8: [0, 0, 255]
+  9: [255, 30, 30]
+  10: [255, 40, 200]
+  11: [150, 30, 90]
+  12: [255, 0, 255]
+  13: [255, 150, 255]
+  14: [75, 0, 75]
+  15: [175, 0, 75]
+  17: [255, 200, 0]
+  18: [255, 120, 50]
+  19: [255, 150, 0]
+content: # as a ratio with the total number of points  
+  0: 0.8806193336394248 
+  1: 0.0014314265409457346
+  2: 0.06053298298983313
+  3: 0.01992885378627217
+  4: 0.017477404043812372
+  5: 0.0015648487435429618
+  6: 0.0007113147888113883
+  7: 0.0004818826026401831
+  8: 0.0000995068347693384
+  9: 0.00009.268891115141482
+  10: 0.0008886702207748676
+  11: 0.0007051892807071783
+  12: 0.0005218711270682096
+  13: 0.0003274533081826416
+  14: 0.00021223223325301445
+  15: 0.006330184142999352
+  16: 0.003945629305294074
+  17: 0.002570580748700855
+  18: 0.00008453354034916591
+  19: 0.001473413211467143
+# classes that are indistinguishable from single scan or inconsistent in
+# ground truth are mapped to their closest equivalent
+learning_map:
+  0: 0
+  1: 1
+  2: 2
+  3: 3
+  4: 4
+  5: 5
+  6: 6
+  7: 7
+  8: 8
+  9: 9
+  10: 10
+  11: 11
+  12: 12
+  13: 13
+  14: 14
+  15: 15
+  16: 16
+  17: 17
+  18: 18
+  19: 19
+learning_map_inv: # inverse of previous map
+  0: 0
+  1: 1
+  2: 2
+  3: 3
+  4: 4
+  5: 5
+  6: 6
+  7: 7
+  8: 8
+  9: 9
+  10: 10
+  11: 11
+  12: 12
+  13: 13
+  14: 14
+  15: 15
+  16: 16
+  17: 17
+  18: 18
+  19: 19
+learning_ignore: # Ignore classes
+  0: True
+  1: False
+  2: False
+  3: False
+  4: False
+  5: False
+  6: False
+  7: False
+  8: False
+  9: False
+  10: False
+  11: False
+  12: False
+  13: False
+  14: False
+  15: False
+  16: False
+  17: False
+  18: False
+  19: False
+split: # sequence numbers
+  train:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+  valid:
+    - 30
+  test:
+    - 31
+    - 32
+    - 33
+    - 34
+    - 35
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    - 43
+    - 44
+    - 45
+    - 46
+    - 47
+    - 48
+    - 49
+    - 50
+    - 51
+    - 52
+    - 53
+    - 54
+    - 55
+    - 56
+
+
+  
