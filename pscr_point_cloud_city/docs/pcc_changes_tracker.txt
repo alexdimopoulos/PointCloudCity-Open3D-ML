@@ -1,4 +1,4 @@
-Files Changed in Latest (11/21/2022) O3DML Repo
+Files Changed in Latest (04/17/2023) O3DML Repo
 
 1.) /ml3d/dataset/__init.py__
 	- import SemanticKITTIPCC from .semantickittipcc
@@ -13,10 +13,6 @@ Files Changed in Latest (11/21/2022) O3DML Repo
 3.) /ml3d/dataset/resources	
 	- Add semantic-kitti-pcc.yaml
 
-#REMOVE - Changed to 19 in PCC_SKITTI
-3.) /ml3d/torch/models
-	- Change randlanet.py --> num classes
-
 4.) /ml3d/configs
 	- default_cfgs
 		- Change weights in semantickitti_pcc.yml
@@ -30,6 +26,14 @@ Files Changed in Latest (11/21/2022) O3DML Repo
 	- Add class names list
 
 
+
+
+
+# Notes and changes in past version
+#REMOVE - Changed to 19 in PCC_SKITTI
+3.) /ml3d/torch/models
+	- Change randlanet.py --> num classes
+
 # not in current
 7.) torch/pipelines/semantic_segmentation.py
 	- num_workers=0
@@ -37,12 +41,9 @@ Files Changed in Latest (11/21/2022) O3DML Repo
 
 
 	
-
-
 ### ADD KPCONV 
 
 ###TO RUN:
-sudo sh </pathto_Open3D-ML_Point_Cloud_City>
-
+source /path_to_/Open3D-ML_Point_Cloud_City/set_open3d_ml_root.sh
 
 ###Change file names to match Open3D-ML more closely
