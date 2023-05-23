@@ -65,7 +65,10 @@ def format_pcc_skitti(las_paths, out_path):
     save_pl = '000000.label'
 
     # Add semantic KITTI structure
-    output_path = os.path.join(out_path, '/PCC_SKITTI/dataset/sequences/')
+    outp_path = os.path.join(out_path, 'PCC_SKITTI')
+    outpu_path = os.path.join(outp_path, 'dataset')
+    output_path = os.path.join(outpu_path, 'sequences')
+
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
@@ -88,16 +91,15 @@ def format_pcc_skitti(las_paths, out_path):
         # Set up save paths 
         bin_p = os.path.join(seq_p, vel)
         lab_p = os.path.join(seq_p, lab)
+
         if not os.path.exists(bin_p):
             os.makedirs(bin_p)
-        if not os.path.exists(seq_p):
-            os.makedirs(seq_p)
+        if not os.path.exists(lab_p):
+            os.makedirs(lab_p)
 
         b_p = os.path.join(bin_p, save_pb)
         l_p = os.path.join(lab_p, save_pl)
         
-        # Build data structure
-
         # returns laspy las point cloud
         las = unify_las_pcc(l_path)
         x = las.x 
@@ -109,34 +111,19 @@ def format_pcc_skitti(las_paths, out_path):
         xyz = np.array([x,y,z,r]).transpose()
         l = np.array([l]).transpose()
 
-        if os.path.exists(b_p):
-            if os.path.isfile(b_p):
-                os.remove(b_p)
-            else:
-                os.rmdir(b_p)
-        if os.path.exists(l_p):
-            if os.path.isfile(l_p):
-                os.remove(l_p)
-            else:
-                os.rmdir(l_p)
-
         print('saving file...')
-        xyz = xyz.astype('float32')
-        np.save(b_p, xyz)
-        l = l.astype('uint32')
-        np.save(l_p, l)
+        xyz.astype('float32').tofile(b_p)
+        l.astype('uint32').tofile(l_p)
         print('SAVED')
+
         del x
         del y
         del z
         del r
         del xyz
         del l
-        del b_p
-        del l_p
         del las
     return
-
 
 def unify_las_pcc(pc):
     # Change las file class labels
@@ -152,7 +139,6 @@ def unify_las_pcc(pc):
             las.classification[i] = uni_codes[class_label]
         else: las.classification[i] = 0
     return las
-
 
 def main():
     parser = argparse.ArgumentParser("PCC Unification Code", description="Unifies the point cloud labels of Poaint Cloud City LAS files")
