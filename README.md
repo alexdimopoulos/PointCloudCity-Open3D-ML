@@ -104,7 +104,7 @@ vis = ml3d.vis.Visualizer()
 vis.visualize_dataset(dataset, 'all', indices=range(100))
 ```
 <!-- ![Visualizer GIF](docs/images/getting_started_ml_visualizer.gif) -->
-<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/pcc_indoor_viz.png" width="320" />
+<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/pcc_indoor_viz.png" width="620" />
 
 
 ### Loading a config file
