@@ -94,7 +94,9 @@ print(all_split.get_data(0)['point'].shape)
 vis = ml3d.vis.Visualizer()
 vis.visualize_dataset(dataset, 'all', indices=range(100))
 ```
-![Visualizer GIF](docs/images/getting_started_ml_visualizer.gif)
+<!-- ![Visualizer GIF](docs/images/getting_started_ml_visualizer.gif) -->
+<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/pcc_indoor_viz.png" width="320" />
+
 
 ### Loading a config file
 Configs of models, datasets, and pipelines are stored in `ml3d/configs`. Users can also construct their own yaml files to keep record of their customized configurations. Here is an example of reading a config file and constructing modules from it.

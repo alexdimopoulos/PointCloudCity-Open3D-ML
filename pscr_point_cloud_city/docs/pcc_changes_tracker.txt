@@ -1,4 +1,4 @@
-Files Changed in Latest (04/17/2023) O3DML Repo
+Files Changed in Latest O3DML Repo
 
 1.) /ml3d/dataset/__init.py__
 	- import SemanticKITTIPCC from .semantickittipcc
