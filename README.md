@@ -76,7 +76,7 @@ to
 
 ```bash
 # in /Open3D-ML_Point_Cloud_City/
-$ source /ml3d/set_open3d_ml_root.sh
+$ source set_open3d_ml_root.sh
 ```
 
 ### Reading a dataset
