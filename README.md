@@ -14,6 +14,8 @@ width="420" />
 
 [**Installation**](#installation) | [**Get started**](#getting-started) | [**Structure**](#repository-structure) | [**Tasks & Algorithms**](#tasks-and-algorithms) | [**Model Zoo**](model_zoo.md) | [**Datasets**](#datasets) | [**How-tos**](#how-tos) | [**Contribute**](#contribute)
 
+Point Cloud City description - Who, what, where, how, why
+
 Open3D-ML is an extension of Open3D for 3D machine learning tasks.
 It builds on top of the Open3D core library and extends it with machine learning
 tools for 3D data processing. This repo focuses on applications such as semantic
@@ -68,7 +70,14 @@ If you need to use different versions of the ML frameworks or CUDA we recommend
 to
 [build Open3D from source](http://www.open3d.org/docs/release/compilation.html).
 
-## Getting started
+## Getting started with Point Cloud City and OPEN3D-ML
+
+### Set Source Repository
+
+```bash
+# in /Open3D-ML_Point_Cloud_City/
+$ source /ml3d/set_open3d_ml_root.sh
+```
 
 ### Reading a dataset
 
@@ -79,7 +88,7 @@ read the SemanticKITTI dataset and visualize it.
 import open3d.ml.torch as ml3d  # or open3d.ml.tf as ml3d
 
 # construct a dataset by specifying dataset_path
-dataset = ml3d.datasets.SemanticKITTI(dataset_path='/path/to/SemanticKITTI/')
+dataset = ml3d.datasets.SemanticKITTI_PCC(dataset_path='/path/to/PCC_SKITTI/')
 
 # get the 'all' split that combines training, validation and test set
 all_split = dataset.get_split('all')
@@ -105,7 +114,7 @@ import open3d.ml as _ml3d
 import open3d.ml.torch as ml3d # or open3d.ml.tf as ml3d
 
 framework = "torch" # or tf
-cfg_file = "ml3d/configs/randlanet_semantickitti.yml"
+cfg_file = "ml3d/configs/randlanet_semantickitti_pcc.yml"
 cfg = _ml3d.utils.Config.load_from_file(cfg_file)
 
 # fetch the classes by the name
@@ -133,7 +142,7 @@ import os
 import open3d.ml as _ml3d
 import open3d.ml.torch as ml3d
 
-cfg_file = "ml3d/configs/randlanet_semantickitti.yml"
+cfg_file = "ml3d/configs/randlanet_semantickitti_pcc.yml"
 cfg = _ml3d.utils.Config.load_from_file(cfg_file)
 
 model = ml3d.models.RandLANet(**cfg.model)
@@ -144,11 +153,7 @@ pipeline = ml3d.pipelines.SemanticSegmentation(model, dataset=dataset, device="g
 # download the weights.
 ckpt_folder = "./logs/"
 os.makedirs(ckpt_folder, exist_ok=True)
-ckpt_path = ckpt_folder + "randlanet_semantickitti_202201071330utc.pth"
-randlanet_url = "https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_semantickitti_202201071330utc.pth"
-if not os.path.exists(ckpt_path):
-    cmd = "wget {} -O {}".format(randlanet_url, ckpt_path)
-    os.system(cmd)
+ckpt_path = ckpt_folder + "randlanet_semantickitti_pcc_202301011330utc.pth"
 
 # load the parameters.
 pipeline.load_ckpt(ckpt_path=ckpt_path)
@@ -173,7 +178,7 @@ a dataset.
 
 ```python
 # use a cache for storing the results of the preprocessing (default path is './logs/cache')
-dataset = ml3d.datasets.SemanticKITTI(dataset_path='/path/to/SemanticKITTI/', use_cache=True)
+dataset = ml3d.datasets.SemanticKITTI(dataset_path='/path/to/SemanticKITTI_PCC/', use_cache=True)
 
 # create the model with random initialization.
 model = RandLANet()
@@ -193,78 +198,6 @@ for details.
 
 <img width="640" src="https://user-images.githubusercontent.com/41028320/146465032-30696948-54f7-48df-bc48-add8d2e38421.jpg">
 
-### 3D Object Detection
-
-#### Running a pretrained model for 3D object detection
-The 3D object detection model is similar to a semantic segmentation model. We can instantiate a pipeline with a pretrained model for Object Detection and run it on a point cloud of our dataset. See the [model zoo](#model-zoo) for obtaining the weights of the pretrained model.
-```python
-import os
-import open3d.ml as _ml3d
-import open3d.ml.torch as ml3d
-
-cfg_file = "ml3d/configs/pointpillars_kitti.yml"
-cfg = _ml3d.utils.Config.load_from_file(cfg_file)
-
-model = ml3d.models.PointPillars(**cfg.model)
-cfg.dataset['dataset_path'] = "/path/to/your/dataset"
-dataset = ml3d.datasets.KITTI(cfg.dataset.pop('dataset_path', None), **cfg.dataset)
-pipeline = ml3d.pipelines.ObjectDetection(model, dataset=dataset, device="gpu", **cfg.pipeline)
-
-# download the weights.
-ckpt_folder = "./logs/"
-os.makedirs(ckpt_folder, exist_ok=True)
-ckpt_path = ckpt_folder + "pointpillars_kitti_202012221652utc.pth"
-pointpillar_url = "https://storage.googleapis.com/open3d-releases/model-zoo/pointpillars_kitti_202012221652utc.pth"
-if not os.path.exists(ckpt_path):
-    cmd = "wget {} -O {}".format(pointpillar_url, ckpt_path)
-    os.system(cmd)
-
-# load the parameters.
-pipeline.load_ckpt(ckpt_path=ckpt_path)
-
-test_split = dataset.get_split("test")
-data = test_split.get_data(0)
-
-# run inference on a single example.
-# returns dict with 'predict_labels' and 'predict_scores'.
-result = pipeline.run_inference(data)
-
-# evaluate performance on the test set; this will write logs to './logs'.
-pipeline.run_test()
-```
-Users can also [use predefined scripts](README.md#using-predefined-scripts) to load pretrained weights and run testing.
-
-
-#### Training a model for 3D object detection
-Similar as for inference, pipelines provide an interface for training a model on
-a dataset.
-
-```python
-# use a cache for storing the results of the preprocessing (default path is './logs/cache')
-dataset = ml3d.datasets.KITTI(dataset_path='/path/to/KITTI/', use_cache=True)
-
-# create the model with random initialization.
-model = PointPillars()
-
-pipeline = ObjectDetection(model=model, dataset=dataset, max_epoch=100)
-
-# prints training progress in the console.
-pipeline.run_train()
-
-```
-
-Below is an example of visualization using KITTI. The example shows the use of bounding boxes for the KITTI dataset.
-
-<img width="640" src="https://github.com/isl-org/Open3D-ML/blob/master/docs/images/visualizer_BoundingBoxes.png?raw=true">
-
-
-For more examples see [`examples/`](https://github.com/isl-org/Open3D-ML/tree/master/examples)
-and the [`scripts/`](https://github.com/isl-org/Open3D-ML/tree/master/scripts) directories. You
-can also enable saving training summaries in the config file and visualize ground truth and
-results with tensorboard. See this [tutorial](docs/tensorboard.md#3dml-models-training-and-inference)
-for details.
-
-<img width="640" src="https://user-images.githubusercontent.com/41028320/146465084-bc397e4c-494a-4464-a73d-525e82a9b6ce.jpg">
 
 ### Using predefined scripts
 
@@ -340,43 +273,6 @@ The table shows the available models and datasets for the segmentation task and 
 
 (*) Using weights from original author.
 
-### Object Detection
-
-For the task of object detection, we measure the performance of different methods using the mean average precision (mAP) for bird's eye view (BEV) and 3D.
-The table shows the available models and datasets for the object detection task and the respective scores. Each score links to the respective weight file.
-For the evaluation, the models were evaluated using the validation subset, according to KITTI's validation criteria. The models were trained for three classes (car, pedestrian and cyclist). The calculated values are the mean value over the mAP of all classes for all difficulty levels.
-For the Waymo dataset, the models were trained on three classes (pedestrian, vehicle, cyclist).
-
-
-| Model / Dataset    | KITTI [BEV / 3D] @ 0.70| Waymo (BEV / 3D) @ 0.50 |
-|--------------------|------------------------|------------------|
-| PointPillars (tf)    | [61.6 / 55.2](https://storage.googleapis.com/open3d-releases/model-zoo/pointpillars_kitti_202012221652utc.zip) | - |
-| PointPillars (torch) | [61.2 / 52.8](https://storage.googleapis.com/open3d-releases/model-zoo/pointpillars_kitti_202012221652utc.pth)  | avg: 61.01 / 48.30 \| [best: 61.47	/ 57.55](https://storage.googleapis.com/open3d-releases/model-zoo/pointpillars_waymo_202211200158utc_seed2_gpu16.pth) [^wpp-train] |
-| PointRCNN (tf)       | [78.2 / 65.9](https://storage.googleapis.com/open3d-releases/model-zoo/pointrcnn_kitti_202105071146utc.zip) | - |
-| PointRCNN (torch)    | [78.2 / 65.9](https://storage.googleapis.com/open3d-releases/model-zoo/pointrcnn_kitti_202105071146utc.pth) | - |
-
-[^wpp-train]: The avg. metrics are the average of three sets of training runs with 4, 8, 16 and 32 GPUs. Training was for halted after 30 epochs. Model checkpoint is available for the best training run.
-
-#### Training PointRCNN
-
-To use ground truth sampling data augmentation for training, we can generate the ground truth database as follows:
-```
-python scripts/collect_bboxes.py --dataset_path <path_to_data_root>
-```
-This will generate a database consisting of objects from the train split. It is recommended to use this augmentation for dataset like KITTI where objects are sparse.
-
-The two stages of PointRCNN are trained separately. To train the proposal generation stage of PointRCNN with PyTorch, run the following command:
-```
-# Train RPN for 100 epochs.
-python scripts/run_pipeline.py torch -c ml3d/configs/pointrcnn_kitti.yml --dataset.dataset_path <path-to-dataset> --mode RPN --epochs 100
-```
-After getting a well trained RPN network, we can train RCNN network with frozen RPN weights.
-```
-# Train RCNN for 70 epochs.
-python scripts/run_pipeline.py torch -c ml3d/configs/pointrcnn_kitti.yml --dataset.dataset_path <path-to-dataset> --mode RCNN --model.ckpt_path <path_to_checkpoint> --epochs 100
-```
-
-
 
 ## Model Zoo
 
@@ -390,16 +286,10 @@ The following is a list of datasets for which we provide dataset reader classes.
 
 * Point Cloud City ([project page](https://www.nist.gov/ctl/pscr/funding-opportunities/past-funding-opportunities/psiap-point-cloud-city))
 * SemanticKITTI ([project page](http://semantic-kitti.org/))
-* Toronto 3D ([github](https://github.com/WeikaiTan/Toronto-3D))
-* Semantic 3D ([project-page](http://www.semantic3d.net/))
-* S3DIS ([project-page](http://buildingparser.stanford.edu/dataset.html))
-* Paris-Lille 3D ([project-page](https://npm3d.fr/paris-lille-3d))
-* Argoverse ([project-page](https://www.argoverse.org/))
-* KITTI ([project-page](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d))
-* Lyft ([project-page](https://level-5.global/data))
-* nuScenes ([project-page](https://www.nuscenes.org/))
-* Waymo ([project-page](https://waymo.com/open/))
-* ScanNet([project-page](http://www.scan-net.org/))
+* Enfield ([project page](https://www.nist.gov/ctl/pscr/creating-catalog-point-clouds-public-buildings-enfield-connecticut))
+* Memphis ([project page](https://www.nist.gov/ctl/pscr/map-901-building-rich-interior-hazard-maps-first-responders))
+* Hancock ([project page](https://www.nist.gov/ctl/pscr/hancock-county-point-cloud-city))
+
 
 
 For downloading these datasets visit the respective webpages and have a look at the scripts in [`scripts/download_datasets`](https://github.com/isl-org/Open3D-ML/tree/master/scripts/download_datasets).

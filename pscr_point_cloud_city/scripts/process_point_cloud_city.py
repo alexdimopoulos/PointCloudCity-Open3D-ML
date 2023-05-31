@@ -157,8 +157,7 @@ def main():
         for x in files:
             if x.endswith(".las"):
                 pcfiles.append(os.path.join(dirpath, x))
-    print(pcfiles)
-    print(len(pcfiles))
+
     format_pcc_skitti(pcfiles, output_path)
 
 if __name__ == '__main__':
