@@ -72,6 +72,13 @@ to
 
 ## Getting started with Point Cloud City and OPEN3D-ML
 
+### Set Source Repository
+
+```bash
+# in /Open3D-ML_Point_Cloud_City/
+$ source /ml3d/set_open3d_ml_root.sh
+```
+
 ### Reading a dataset
 
 The dataset namespace contains classes for reading common datasets. Here we
@@ -144,7 +151,7 @@ pipeline = ml3d.pipelines.SemanticSegmentation(model, dataset=dataset, device="g
 # download the weights.
 ckpt_folder = "./logs/"
 os.makedirs(ckpt_folder, exist_ok=True)
-ckpt_path = ckpt_folder + "randlanet_semantickitti_202301011330utc.pth"
+ckpt_path = ckpt_folder + "randlanet_semantickitti_pcc_202301011330utc.pth"
 
 # load the parameters.
 pipeline.load_ckpt(ckpt_path=ckpt_path)
