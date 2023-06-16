@@ -45,4 +45,5 @@ pipeline:
     max_pts:
     use_reference: false
     max_outputs: 1
-    
+    num_workers: 0
+    pin_memory: false
