@@ -18,6 +18,14 @@ Files Changed in Latest O3DML Repo
 		- Change weights in semantickitti_pcc.yml
 	- randlanet_semantickitti_PCC.yml
 		- Change weights and number of classes
+		- add in pipeline:
+			num_workers: 0
+			pin_memory: false
+			***
+				# not in current
+					4.1.) torch/pipelines/semantic_segmentation.py
+						- num_workers=0
+						- pinned=False
 
 5.) vis_pred.py
 	- Change to add SemanticKITTI_PCC
@@ -59,10 +67,7 @@ PCC_SKITTI
 3.) /ml3d/torch/models
 	- Change randlanet.py --> num classes
 
-# not in current
-7.) torch/pipelines/semantic_segmentation.py
-	- num_workers=0
-	- pinned=False
+
 
 
 	
