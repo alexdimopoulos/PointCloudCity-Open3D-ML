@@ -40,10 +40,11 @@ pipeline:
   test_batch_size: 1
   train_sum_dir: train_log
   val_batch_size: 2
+  num_workers: 0
+  pin_memory: false
   summary:
     record_for: []
     max_pts:
     use_reference: false
     max_outputs: 1
-    num_workers: 0
-    pin_memory: false
+
