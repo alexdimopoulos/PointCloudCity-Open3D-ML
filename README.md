@@ -14,13 +14,13 @@ width="420" />
 
 [**Installation**](#installation) | [**Get started**](#getting-started) | [**Structure**](#repository-structure) | [**Tasks & Algorithms**](#tasks-and-algorithms) | [**Model Zoo**](model_zoo.md) | [**Datasets**](#datasets) | [**How-tos**](#how-tos) | [**Contribute**](#contribute)
 
-Point Cloud City description - Who, what, where, how, why
-
 Open3D-ML is an extension of Open3D for 3D machine learning tasks.
 It builds on top of the Open3D core library and extends it with machine learning
 tools for 3D data processing. This repo focuses on applications such as semantic
 point cloud segmentation and provides pretrained models that can be applied to
 common tasks as well as pipelines for training.
+
+Point Cloud City was developed during the 2018 NIST Public Safety Innovation Accelerator Program - Point Cloud City NOFO awardees generated an extensive catalog of annotated 3D indoor point clouds that can be used by industry, academia, and government to advance research and development in the areas of indoor mapping, localization and navigation for public safety, as well as to demonstrate the potential value of ubiquitous indoor positioning and location-based information. These pioneering U.S. state and local governments will create a model ‘Point Cloud City’ and also participate in the NIST Global Cities Team Challenge initiative as the lead for an Action Cluster. This repository extends Open3D-ML to be imlemented using the Point Cloud City datasets and features the processing code, dataset integration, and machine learning model configuration files.
 
 Open3D-ML works with **TensorFlow** and **PyTorch** to integrate easily into
 existing projects and also provides general functionality independent of
@@ -178,7 +178,7 @@ a dataset.
 
 ```python
 # use a cache for storing the results of the preprocessing (default path is './logs/cache')
-dataset = ml3d.datasets.SemanticKITTI(dataset_path='/path/to/SemanticKITTI_PCC/', use_cache=True)
+dataset = ml3d.datasets.SemanticKITTI_PCC(dataset_path='/path/to/SemanticKITTI_PCC/', use_cache=True)
 
 # create the model with random initialization.
 model = RandLANet()
@@ -215,11 +215,11 @@ So instead of changing param in config file, you may pass the same as a command 
 
 For eg.
 ```
-# Launch training for RandLANet on SemanticKITTI with torch.
-python scripts/run_pipeline.py torch -c ml3d/configs/randlanet_semantickitti.yml --dataset.dataset_path <path-to-dataset> --pipeline SemanticSegmentation --dataset.use_cache True
+# Launch training for RandLANet on SemanticKITTI_PCC with torch.
+python scripts/run_pipeline.py torch -c ml3d/configs/randlanet_semantickitti_pcc.yml --dataset.dataset_path <path-to-dataset> --pipeline SemanticSegmentation --dataset.use_cache True
 
-# Launch testing for PointPillars on KITTI with torch.
-python scripts/run_pipeline.py torch -c ml3d/configs/pointpillars_kitti.yml --split test --dataset.dataset_path <path-to-dataset> --pipeline ObjectDetection --dataset.use_cache True
+# Launch testing for KPConv on SemanticKITTI_PCC with torch.
+python scripts/run_pipeline.py torch -c ml3d/configs/kpconv_semantickitti_pcc.yml --split test --dataset.dataset_path <path-to-dataset> --pipeline SemanticSegmentation --dataset.use_cache True
 
 ```
 For further help, run `python scripts/run_pipeline.py --help`.
@@ -231,6 +231,9 @@ into Open3D in the `ml` namespace. In addition to the core part, the directories
 setting up a training pipeline or running a network on a dataset.
 
 ```
+├─ pscr_point_cloud_city  # Documentation and processing code for PCC O3D-ML 
+     ├─ docs              # Directory for dataset details
+     ├─ scripts           # Dataset processing code
 ├─ docs                   # Markdown and rst files for documentation
 ├─ examples               # Place for example scripts and notebooks
 ├─ ml3d                   # Package root dir that is integrated in open3d
