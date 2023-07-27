@@ -1,5 +1,5 @@
 dataset:
-  name: SemanticKITTI
+  name: SemanticKITTI_PCC
   # dataset_path: path/to/your/datasets
   class_weights: [3745937, 158410323, 52152331, 45737069, 4095093, 1861458, 1261051, 260402, 242560, 2325584, 1845428, 1365698, 856921, 555396, 16565622, 10325419, 6727019, 221218, 3855813]
   test_result_folder: ./test
@@ -9,7 +9,7 @@ dataset:
   validation_split: ['59']
   use_cache: true
   validation_split:
-  - '08'
+  - '59'
 model:
   name: KPFCNN
   ckpt_path: # path/to/your/checkpoint
@@ -94,4 +94,3 @@ pipeline:
     max_pts:
     use_reference: false
     max_outputs: 1
-    
