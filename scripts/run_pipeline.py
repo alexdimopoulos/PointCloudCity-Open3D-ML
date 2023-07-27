@@ -237,6 +237,7 @@ def main_worker(local_rank, Dataset, Model, Pipeline, cfg_dict_dataset,
     model = Model(**cfg_dict_model, mode=args.mode)
     pipeline = Pipeline(model,
                         dataset,
+                        num_workers=0,
                         distributed=args.distributed,
                         **cfg_dict_pipeline)
 
