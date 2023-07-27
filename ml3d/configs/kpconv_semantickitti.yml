@@ -92,6 +92,8 @@ pipeline:
   train_sum_dir: train_log
   val_batch_size: 1
   weight_decay: 0.001
+  num_workers: 0
+  pin_memory: false
   summary:
     record_for: []
     max_pts:
