@@ -202,7 +202,7 @@ for details.
 <img width="640" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png">
 
 
-### KPCONV Results - PCC
+### KPCONV Semantic Segmentation Results - Point Cloud City
 
 <img width="640" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair">
 <img width="640" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/.enfield_student_union_kpconv_results70.png">
