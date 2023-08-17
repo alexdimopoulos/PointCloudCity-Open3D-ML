@@ -197,18 +197,19 @@ results with tensorboard. See this [tutorial](docs/tensorboard.md#3dml-models-tr
 for details.
 
 
-## Ground Truth - Stairway
+## Results
 
-<img width="320" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png">
-<img width="320" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png">
+### Ground Truth - Point Cloud City 
+<p float="left">
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="300" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
+</p>
 
-
-## KPCONV Semantic Segmentation Results - Point Cloud City
-
-<img width="320" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png">
-<img width="320" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png">
-
-
+### KPCONV Semantic Segmentation Results 
+<p float="left">
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="300" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" />
+</p>
 
 
 ### Using predefined scripts
