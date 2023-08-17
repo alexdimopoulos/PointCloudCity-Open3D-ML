@@ -319,11 +319,11 @@ For downloading these datasets visit the respective webpages and have a look at 
 * [Inference with Intel OpenVINO](docs/openvino.md)
 
 ## Contribute
-There are many ways to contribute to this project. You can:
-* Implement a new model
-* Add code for reading a new dataset
-* Share parameters and weights for an existing model
-* Report problems and bugs
+There are many ways to contribute to this project through the original repo:
+* https://github.com/isl-org/Open3D-ML/
+
+This repository is not being maintained but the code under /pscr_point_cloud_city/scripts can be used to process the Point Cloud City dataset for machine learning tasks.
+
 
 Please, **make your pull requests to the** [**dev**](https://github.com/isl-org/Open3D-ML/tree/dev) branch.
 Open3D is a community effort. We welcome and celebrate contributions from the
