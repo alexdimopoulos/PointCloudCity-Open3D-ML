@@ -3,23 +3,23 @@ labels:
   0: 'unassigned'
   1: 'stairway'
   2: 'door'
-  3: 'window'
-  4: 'pillar'
-  5: 'building entrance-exit'
-  6: 'elevator'
-  7: 'server equipment'
+  3: 'non exit door'
+  4: 'fire door'
+  5: 'window'
+  6: 'roof access'
+  7: 'exit sign'
   8: 'emergency lighting'
-  9: 'sprinkler'
-  10: 'fire door'
-  11: 'sign exit'
-  12: 'extinguisher'
-  13: 'utility shut offs - water'
-  14: 'mechanical equipment'
-  15: 'smoke detector'
-  16: 'fire suppression systems - sprinkler cover/escutcheon'
-  17: 'utility shutoffs - electric'
-  18: 'IFAK'
-  19: 'fire alarm'
+  9: 'smoke detector'
+  10: 'extinguisher'
+  11: 'fire alarm'
+  12: 'person'
+  13: 'AED'
+  14: 'sprinkler'
+  15: 'standpipe'
+  16: 'utility shutoffs - electric'
+  17: 'elevator'
+  18: 'hydrant'
+  19: 'gas shutoff'
 color_map: # rgb
   0: [0, 0, 0]
   1: [255, 0, 0]
@@ -41,26 +41,27 @@ color_map: # rgb
   18: [255, 120, 50]
   19: [255, 150, 0]
 content: # as a ratio with the total number of points  
-  0: 0.8806193336394248 
-  1: 0.0014314265409457346
-  2: 0.06053298298983313
-  3: 0.01992885378627217
-  4: 0.017477404043812372
-  5: 0.0015648487435429618
-  6: 0.0007113147888113883
-  7: 0.0004818826026401831
-  8: 0.0000995068347693384
-  9: 0.00009.268891115141482
-  10: 0.0008886702207748676
-  11: 0.0007051892807071783
-  12: 0.0005218711270682096
-  13: 0.0003274533081826416
-  14: 0.00021223223325301445
-  15: 0.006330184142999352
-  16: 0.003945629305294074
-  17: 0.002570580748700855
-  18: 0.00008453354034916591
-  19: 0.001473413211467143
+  0: 0.8811884943781834
+  1: 0.001725459712291224
+  2: 0.002105331442486998
+  3: 0.06993406439397243
+  4: 0.0010710585792888844
+  5: 0.023089055076144643
+  6: 0.004239449885620273
+  7: 0.001022451806102524
+  8: 0.00011158769547661089
+  9: 0.005299732690886051
+  10: 0.0004991174327648771
+  11: 0.0019324029198596639
+  12: 0.000354658043215191
+  13: 0.00025945765811044704
+  14: 0.0001612505376609375
+  15: 3.788080476033496
+  16: 0.005803434776447146
+  17: 0.0008274597212016675
+  18: 8.02916982232709
+  19: 0.0003709422528287704
+
 # classes that are indistinguishable from single scan or inconsistent in
 # ground truth are mapped to their closest equivalent
 learning_map:
