@@ -200,16 +200,19 @@ for details.
 ## Results
 
 ### Ground Truth - Point Cloud City 
+---
 <p float="left">
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="300" /> 
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
 </p>
 
 ### KPCONV Semantic Segmentation Results 
+---
 <p float="left">
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="300" /> 
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" />
 </p>
+
 
 
 ### Using predefined scripts
@@ -319,20 +322,10 @@ For downloading these datasets visit the respective webpages and have a look at 
 * [Inference with Intel OpenVINO](docs/openvino.md)
 
 ## Contribute
-There are many ways to contribute to this project through the original repo:
+**This repository is not being maintained but the code under /pscr_point_cloud_city/scripts can be used to process the Point Cloud City dataset for machine learning tasks.**
+
+There are many ways to contribute to the original project through:
 * https://github.com/isl-org/Open3D-ML/
-
-This repository is not being maintained but the code under /pscr_point_cloud_city/scripts can be used to process the Point Cloud City dataset for machine learning tasks.
-
-
-Please, **make your pull requests to the** [**dev**](https://github.com/isl-org/Open3D-ML/tree/dev) branch.
-Open3D is a community effort. We welcome and celebrate contributions from the
-community!
-
-If you want to share weights for a model you trained please attach or link the
-weights file in the pull request.
-For bugs and problems, [open an issue](https://github.com/isl-org/Open3D-ML/issues).
-Please also check out our communication channels to get in contact with the community.
 
 ## Communication channels
 
