@@ -196,16 +196,17 @@ can also enable saving training summaries in the config file and visualize groun
 results with tensorboard. See this [tutorial](docs/tensorboard.md#3dml-models-training-and-inference)
 for details.
 
-### Ground Truth - Stairway
 
-<img width="640" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png">
-<img width="640" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png">
+## Ground Truth - Stairway
+
+<img width="320" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png">
+<img width="320" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png">
 
 
-### KPCONV Semantic Segmentation Results - Point Cloud City
+## KPCONV Semantic Segmentation Results - Point Cloud City
 
-<img width="640" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair">
-<img width="640" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/.enfield_student_union_kpconv_results70.png">
+<img width="320" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png">
+<img width="320" src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/.enfield_student_union_kpconv_results70.png">
 
 
 
