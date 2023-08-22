@@ -196,7 +196,23 @@ can also enable saving training summaries in the config file and visualize groun
 results with tensorboard. See this [tutorial](docs/tensorboard.md#3dml-models-training-and-inference)
 for details.
 
-<img width="640" src="https://user-images.githubusercontent.com/41028320/146465032-30696948-54f7-48df-bc48-add8d2e38421.jpg">
+
+## Results
+
+### Ground Truth - Point Cloud City 
+---
+<p float="left">
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="300" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
+</p>
+
+### KPCONV Semantic Segmentation Results 
+---
+<p float="left">
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="300" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" />
+</p>
+
 
 
 ### Using predefined scripts
@@ -263,18 +279,14 @@ For the task of semantic segmentation, we measure the performance of different m
 The table shows the available models and datasets for the segmentation task and the respective scores. Each score links to the respective weight file.
 
 
-| Model / Dataset    | SemanticKITTI | Toronto 3D | S3DIS | Semantic3D | Paris-Lille3D | ScanNet |
+| Model / Dataset    | Stairway | Fire Door | Windows | Fire Alarm | Building Enterance-Exit| |
 |--------------------|---------------|----------- |-------|--------------|-------------|---------|
 | RandLA-Net (tf)    | [53.7](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_semantickitti_202201071330utc.zip) |  [73.7](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_toronto3d_202201071330utc.zip) |  [70.9](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_s3dis_202201071330utc.zip)    | [76.0](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_semantic3d_202201071330utc.zip) |  [70.0](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_parislille3d_202201071330utc.zip)* | - |
 | RandLA-Net (torch) | [52.8](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_semantickitti_202201071330utc.pth)        |     [74.0](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_toronto3d_202201071330utc.pth)  |  [70.9](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_s3dis_202201071330utc.pth)  | [76.0](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_semantic3d_202201071330utc.pth) |  [70.0](https://storage.googleapis.com/open3d-releases/model-zoo/randlanet_parislille3d_202201071330utc.pth)* | - |
 | KPConv     (tf)    | [58.7](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_semantickitti_202010021102utc.zip)         |     [65.6](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_toronto3d_202012221551utc.zip)  |  [65.0](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_s3dis_202010091238.zip) | - |  [76.7](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_parislille3d_202011241550utc.zip) | - |
 | KPConv     (torch) | [58.0](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_semantickitti_202009090354utc.pth)          |     [65.6](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_toronto3d_202012221551utc.pth) |  [60.0](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_s3dis_202010091238.pth)  | - | [76.7](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_parislille3d_202011241550utc.pth) | - |
-| SparseConvUnet (torch)| - | - | - | - | - | [68](https://storage.googleapis.com/open3d-releases/model-zoo/sparseconvunet_scannet_202105031316utc.pth) |
-| SparseConvUnet (tf)| - | - | - | - | - | [68.2](https://storage.googleapis.com/open3d-releases/model-zoo/sparseconvunet_scannet_202105031316utc.zip) |
-| PointTransformer (torch)| - | - | [69.2](https://storage.googleapis.com/open3d-releases/model-zoo/pointtransformer_s3dis_202109241350utc.pth) | - | - | - |
-| PointTransformer (tf)| - | - | [69.2](https://storage.googleapis.com/open3d-releases/model-zoo/pointtransformer_s3dis_202109241350utc.zip) | - | - | - |
 
-(*) Using weights from original author.
+(*) Using weights from Point Cloud City dataset.
 
 
 ## Model Zoo
@@ -310,20 +322,10 @@ For downloading these datasets visit the respective webpages and have a look at 
 * [Inference with Intel OpenVINO](docs/openvino.md)
 
 ## Contribute
-There are many ways to contribute to this project. You can:
-* Implement a new model
-* Add code for reading a new dataset
-* Share parameters and weights for an existing model
-* Report problems and bugs
+**This repository is not being maintained but the code under /pscr_point_cloud_city/scripts can be used to process the Point Cloud City dataset for machine learning tasks.**
 
-Please, **make your pull requests to the** [**dev**](https://github.com/isl-org/Open3D-ML/tree/dev) branch.
-Open3D is a community effort. We welcome and celebrate contributions from the
-community!
-
-If you want to share weights for a model you trained please attach or link the
-weights file in the pull request.
-For bugs and problems, [open an issue](https://github.com/isl-org/Open3D-ML/issues).
-Please also check out our communication channels to get in contact with the community.
+There are many ways to contribute to the original project through:
+* https://github.com/isl-org/Open3D-ML/
 
 ## Communication channels
 
