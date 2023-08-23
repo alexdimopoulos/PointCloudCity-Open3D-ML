@@ -279,9 +279,9 @@ For the task of semantic segmentation, we measure the performance of different m
 The table shows the available models and datasets for the segmentation task and the respective scores. Each score links to the respective weight file.
 
 
-| Model / Dataset    | Stairway | Windows | Roof Access | Fire Alarm | Building Enterance-Exit| |
+| Model / Dataset    | Stairway | Windows | Roof Access | Fire Sprinkler | Gas Shutoff| |
 |--------------------|---------------|----------- |-------|--------------|-------------|---------|
-| KPConv     (torch) | [28.9](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_semantickitti_202009090354utc.pth) |  [92.7](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_toronto3d_202012221551utc.pth) |  [42.8](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_s3dis_202010091238.pth)  | - | [76.7](https://storage.googleapis.com/open3d-releases/model-zoo/kpconv_parislille3d_202011241550utc.pth) | - |
+| KPConv     (torch) | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] |
 
 (*) Using weights from Point Cloud City dataset.
 
