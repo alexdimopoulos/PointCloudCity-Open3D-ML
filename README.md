@@ -319,7 +319,7 @@ For downloading these datasets visit the respective webpages and have a look at 
 * [Inference with Intel OpenVINO](docs/openvino.md)
 
 ## Contribute
-**This repository is not being maintained but the code under /pscr_point_cloud_city/scripts can be used to process the Point Cloud City dataset for machine learning tasks.**
+**This repository is no longer maintained by NIST. The code under /pscr_point_cloud_city/scripts can be used to process the Point Cloud City dataset for machine learning tasks.**
 
 There are many ways to contribute to the original project through:
 * https://github.com/isl-org/Open3D-ML/
