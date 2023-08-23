@@ -279,9 +279,9 @@ For the task of semantic segmentation, we measure the performance of different m
 The table shows the available models and datasets for the segmentation task and the respective scores. Each score links to the respective weight file.
 
 
-| Model / Dataset    | Stairway | Windows | Roof Access | Fire Sprinkler | Gas Shutoff| |
+| Model / Dataset | Stairway | Windows | Roof Access | Fire Sprinkler | Gas Shutoff| |
 |--------------------|---------------|----------- |-------|--------------|-------------|---------|
-| KPConv     (torch) | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] |
+| KPConv     (torch) | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] 
 
 (*) Using weights from Point Cloud City dataset.
 
