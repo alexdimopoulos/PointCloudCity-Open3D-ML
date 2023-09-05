@@ -1,8 +1,9 @@
+
 <p align="center">
 <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/nist_pscr_logo.png" 
 width="420" />
 <span style="font-size: 220%"><b>Point Cloud City on</b></span>
-<br />
+<br>  
 <img src="https://raw.githubusercontent.com/isl-org/Open3D/master/docs/_static/open3d_logo_horizontal.png" width="320" />
 <span style="font-size: 220%"><b>ML</b></span>
 </p>
@@ -12,7 +13,7 @@ width="420" />
 ![PyTorch badge](https://img.shields.io/badge/PyTorch-supported-brightgreen?style=flat&logo=pytorch)
 ![TensorFlow badge](https://img.shields.io/badge/TensorFlow-supported-brightgreen?style=flat&logo=tensorflow)
 
-[**Installation**](#installation) | [**Get started**](#Getting started with Point Cloud City and OPEN3D-ML) | [**Structure**](#repository-structure) | [**Tasks & Algorithms**](#tasks-and-algorithms) | [**Model Zoo**](model_zoo.md) | [**Datasets**](#datasets) | [**How-tos**](#how-tos) | [**Contribute**](#contribute)
+[**Installation**](#installation) | [**Get started**](#getting-started-with-point-cloud-city-and-open3d-ml) | [**Structure**](#repository-structure) | [**Tasks & Algorithms**](#tasks-and-algorithms) | [**Model Zoo**](model_zoo.md) | [**Datasets**](#datasets) | [**How-tos**](#how-tos) | [**Contribute**](#contribute)
 
 Open3D-ML is an extension of Open3D for 3D machine learning tasks.
 It builds on top of the Open3D core library and extends it with machine learning
@@ -285,9 +286,9 @@ This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.
 |--------------------|---------------|----------- |-------|--------------|-------------|---------|
 | Enfield | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] 
 | Memphis | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] 
-| SKITTI_PCC | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] 
+| PCC_SKITTI | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] 
 
-(*) Using weights from Point Cloud City dataset. SKITTI_PCC is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
+(*) Using weights from Point Cloud City dataset. PCC_SKITTI is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
 
 
 ## Model Zoo
@@ -314,6 +315,7 @@ For downloading these datasets visit the respective webpages and have a look at 
 
 ## How-tos
 
+* [Process Point Cloud City - SemanticKITTI Format](pscr_point_cloud_city/docs/process_pcc.ipynb#process-dataset)
 * [Visualize network predictions](docs/howtos.md#visualize-network-predictions)
 * [Visualize custom data](docs/howtos.md#visualize-custom-data)
 * [Adding a new model](docs/howtos.md#adding-a-new-model)
