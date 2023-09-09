@@ -289,7 +289,7 @@ This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.
 | Memphis | IoU | 6.7  |  97.6 |  0.00 | 0.05 | 0.00 
 |         |  F1  | 13.1 |  98.87 |  0.00 | 0.10 | 0.00 
 | PCC_SKITTI |  IoU | 28.9 |  92.7 |  42.8 | 77.8 | 76.7 
-|            |  F1   | 28.9 |  92.7 |  42.8 | 77.8 | 76.7 
+|            |  F1   | 28.9 |  92.74 |  42.8 | 25.3 | 77.8 
 
 (*) Using weights trained on the Point Cloud City with mean calculated from test datasets. PCC_SKITTI is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
 
