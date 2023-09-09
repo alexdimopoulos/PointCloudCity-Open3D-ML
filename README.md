@@ -105,7 +105,7 @@ vis = ml3d.vis.Visualizer()
 vis.visualize_dataset(dataset, 'all', indices=range(100))
 ```
 <!-- ![Visualizer GIF](docs/images/getting_started_ml_visualizer.gif) -->
-<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/pcc_indoor_viz.png" width="620" />
+<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/pcc_indoor_viz.png"/>
 
 
 ### Loading a config file
@@ -203,15 +203,15 @@ for details.
 ### Ground Truth - Point Cloud City 
 ---
 <p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="300" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="400" height="386" /> 
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
 </p>
 
 ### KPCONV Semantic Segmentation Results 
 ---
 <p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="300" /> 
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" />
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="400" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="390" />
 </p>
 
 
@@ -357,20 +357,4 @@ Please cite our work ([pdf](https://arxiv.org/abs/1801.09847)) if you use Open3D
 
 
 
-
-## Results
-
-### Ground Truth - Point Cloud City 
----
-<p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="400" height="386" /> 
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
-</p>
-
-### KPCONV Semantic Segmentation Results 
----
-<p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="400" /> 
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="390" />
-</p>
 
