@@ -282,13 +282,16 @@ The table shows the available models and datasets for the segmentation task and 
 This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.08889) and was run using PyTorch.
 
 
-| Dataset | Stairway | Windows | Roof Access | Fire Sprinkler | Gas Shutoff| |
+| Dataset | Metric - Mean | Stairway | Windows | Roof Access | Fire Sprinkler | Gas Shutoff|
 |--------------------|---------------|----------- |-------|--------------|-------------|---------|
-| Enfield | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] 
-| Memphis | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] 
-| PCC_SKITTI | [28.9] |  [92.7] |  [42.8] | [77.8] | [76.7] 
+| Enfield | IoU | 37.8 |  50.1 |  23.7 | 20.1 | 68.6 
+|         |  F1  | 54.9 |  65.1 |  66.8 | 34.1 | 81.4 
+| Memphis | IoU | 6.7  |  97.6 |  0.00 | 0.05 | 0.00 
+|         |  F1  | 13.1 |  98.87 |  0.00 | 0.10 | 0.00 
+| PCC_SKITTI |  IoU | 28.9 |  92.7 |  42.8 | 77.8 | 76.7 
+|            |  F1   | 28.9 |  92.7 |  42.8 | 77.8 | 76.7 
 
-(*) Using weights from Point Cloud City dataset. PCC_SKITTI is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
+(*) Using weights trained on the Point Cloud City with mean calculated from test datasets. PCC_SKITTI is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
 
 
 ## Model Zoo
@@ -349,3 +352,25 @@ Please cite our work ([pdf](https://arxiv.org/abs/1801.09847)) if you use Open3D
     year      = {2018},
 }
 ```
+
+
+
+
+
+
+## Results
+
+### Ground Truth - Point Cloud City 
+---
+<p float="left">
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="400" height="386" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
+</p>
+
+### KPCONV Semantic Segmentation Results 
+---
+<p float="left">
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="400" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="390" />
+</p>
+
