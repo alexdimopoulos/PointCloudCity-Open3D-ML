@@ -115,7 +115,7 @@ import open3d.ml as _ml3d
 import open3d.ml.torch as ml3d # or open3d.ml.tf as ml3d
 
 framework = "torch" # or tf
-cfg_file = "ml3d/configs/randlanet_semantickitti_pcc.yml"
+cfg_file = "ml3d/configs/kpconv_semantickitti_pcc.yml"
 cfg = _ml3d.utils.Config.load_from_file(cfg_file)
 
 # fetch the classes by the name
