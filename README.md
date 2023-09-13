@@ -15,18 +15,18 @@ width="420" />
 
 [**Installation**](#installation) | [**Get started**](#getting-started-with-point-cloud-city-and-open3d-ml) | [**Structure**](#repository-structure) | [**Tasks & Algorithms**](#tasks-and-algorithms) | [**Model Zoo**](model_zoo.md) | [**Datasets**](#datasets) | [**How-tos**](#how-tos) | [**Contribute**](#contribute)
 
+
+[Point Cloud City](https://www.nist.gov/ctl/pscr/funding-opportunities/past-funding-opportunities/psiap-point-cloud-city) was developed during the 2018 NIST Public Safety Innovation Accelerator Program - Point Cloud City NOFO awardees generated an extensive catalog of annotated 3D indoor point clouds that can be used by industry, academia, and government to advance research and development in the areas of indoor mapping, localization and navigation for public safety, as well as to demonstrate the potential value of ubiquitous indoor positioning and location-based information. These pioneering U.S. state and local governments will create a model ‘Point Cloud City’ and also participate in the NIST Global Cities Team Challenge initiative as the lead for an Action Cluster. This repository extends Open3D-ML to be imlemented using the Point Cloud City datasets and features the processing code, dataset integration, and machine learning model configuration files.
+
 Open3D-ML is an extension of Open3D for 3D machine learning tasks.
 It builds on top of the Open3D core library and extends it with machine learning
 tools for 3D data processing. This repo focuses on applications such as semantic
 point cloud segmentation and provides pretrained models that can be applied to
 common tasks as well as pipelines for training.
 
-[Point Cloud City](https://www.nist.gov/ctl/pscr/funding-opportunities/past-funding-opportunities/psiap-point-cloud-city) was developed during the 2018 NIST Public Safety Innovation Accelerator Program - Point Cloud City NOFO awardees generated an extensive catalog of annotated 3D indoor point clouds that can be used by industry, academia, and government to advance research and development in the areas of indoor mapping, localization and navigation for public safety, as well as to demonstrate the potential value of ubiquitous indoor positioning and location-based information. These pioneering U.S. state and local governments will create a model ‘Point Cloud City’ and also participate in the NIST Global Cities Team Challenge initiative as the lead for an Action Cluster. This repository extends Open3D-ML to be imlemented using the Point Cloud City datasets and features the processing code, dataset integration, and machine learning model configuration files.
-
-Open3D-ML works with **TensorFlow** and **PyTorch** to integrate easily into
+Open3D-ML-PointCloudCity works with **TensorFlow** and **PyTorch** to integrate easily into
 existing projects and also provides general functionality independent of
 ML frameworks such as data visualization.
-
 
 ## Installation
 
@@ -289,7 +289,7 @@ This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.
 | Memphis | IoU | 6.7  |  97.6 |  0.00 | 0.05 | 0.00 
 |         |  F1  | 13.1 |  98.87 |  0.00 | 0.10 | 0.00 
 | PCC_SKITTI |  IoU | 28.9 |  92.7 |  42.8 | 77.8 | 76.7 
-|            |  F1   | 28.9 |  92.74 |  42.8 | 25.3 | 77.8 
+|            |  F1   | 28.9 |  92.7 |  42.8 | 25.3 | 77.8 
 
 (*) Using weights trained on the Point Cloud City with mean calculated from test datasets. PCC_SKITTI is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
 
