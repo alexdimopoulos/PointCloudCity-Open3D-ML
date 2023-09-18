@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/nist_pscr_logo.png" 
+<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/main/data/nist_pscr_logo.png" 
 width="420" />
 <span style="font-size: 220%"><b>Point Cloud City on</b></span>
 <br>  
