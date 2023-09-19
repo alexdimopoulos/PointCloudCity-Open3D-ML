@@ -207,7 +207,7 @@ for details.
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
 </p>
 
-### KPCONV Semantic Segmentation Results 
+### KPCONV Semantic Segmentation Results - PCC-SKITTI
 ---
 <p float="left">
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="400" /> 
