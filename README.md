@@ -4,7 +4,7 @@
 width="420" />
 <span style="font-size: 220%"><b>Point Cloud City on</b></span>
 <br>  
-<img src="https://raw.githubusercontent.com/isl-org/Open3D/master/docs/_static/open3d_logo_horizontal.png" width="320" />
+<img src="https://raw.githubusercontent.com/isl-org/Open3D/main/docs/_static/open3d_logo_horizontal.png" width="320" />
 <span style="font-size: 220%"><b>ML</b></span>
 </p>
 
