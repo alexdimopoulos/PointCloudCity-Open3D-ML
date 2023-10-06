@@ -103,8 +103,8 @@ to
 ### Point Cloud City - Classification Labels 
 ---
 <p>
-  <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pccskitti_labels_names.PNG?raw=true" width="900" height="500" align="left"/> 
-  <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pcc_labels.PNG?raw=true" width="300" height="500"/>
+  <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pccskitti_labels_names.PNG?raw=true" width="550" height="350" align="left"/> 
+  <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pcc_labels.PNG?raw=true" width="250" height="350"/>
 </p>
 
 ### Reading a dataset
@@ -225,22 +225,6 @@ for details.
 
 ## Results
 
-### Ground Truth - Point Cloud City 
----
-<p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="400" height="386" /> 
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
-</p>
-
-### KPCONV Semantic Segmentation Results - PCC-SKITTI
----
-<p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="400" /> 
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="389" />
-</p>
-
-## Tasks and Algorithms
-
 ### Semantic Segmentation
 
 For the task of semantic segmentation, we measure the performance of different methods using the mean intersection-over-union (mIoU) over all classes.
@@ -259,6 +243,19 @@ This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.
 
 (*) Using weights trained on the Point Cloud City with mean calculated from test datasets. PCC_SKITTI is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
 
+### Ground Truth - Point Cloud City 
+---
+<p float="left">
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="400" height="386" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
+</p>
+
+### KPCONV Semantic Segmentation Results - PCC-SKITTI
+---
+<p float="left">
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="400" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="389" />
+</p>
 
 ### Using predefined scripts
 
@@ -272,7 +269,6 @@ You can use script for both semantic segmentation and object detection. You must
 either SemanticSegmentation or ObjectDetection in the `pipeline` parameter.
 Note that `extra args` will be prioritized over the same parameter present in the configuration file.
 So instead of changing param in config file, you may pass the same as a command line argument while launching the script.
-
 
 For eg.
 ```
