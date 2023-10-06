@@ -16,7 +16,9 @@ width="420" />
 [**Installation**](#installation) | [**Get started**](#getting-started-with-point-cloud-city-and-open3d-ml) | [**Structure**](#repository-structure) | [**Tasks & Algorithms**](#tasks-and-algorithms) | [**Model Zoo**](model_zoo.md) | [**Datasets**](#datasets) | [**How-tos**](#how-tos) | [**Contribute**](#contribute)
 
 
-[Point Cloud City](https://www.nist.gov/ctl/pscr/funding-opportunities/past-funding-opportunities/psiap-point-cloud-city) was developed during the 2018 NIST Public Safety Innovation Accelerator Program - Point Cloud City NOFO awardees generated an extensive catalog of annotated 3D indoor point clouds that can be used by industry, academia, and government to advance research and development in the areas of indoor mapping, localization and navigation for public safety, as well as to demonstrate the potential value of ubiquitous indoor positioning and location-based information. These pioneering U.S. state and local governments will create a model ‘Point Cloud City’ and also participate in the NIST Global Cities Team Challenge initiative as the lead for an Action Cluster. This repository extends Open3D-ML to be imlemented using the Point Cloud City datasets and features the processing code, dataset integration, and machine learning model configuration files.
+[Point Cloud City](https://www.nist.gov/ctl/pscr/funding-opportunities/past-funding-opportunities/psiap-point-cloud-city) was developed during the 2018 NIST Public Safety Innovation Accelerator Program - NOFO awardees generated an extensive catalog of annotated 3D indoor point clouds that can be used by industry, academia, and government to advance research and development in the areas of indoor mapping, localization and navigation for public safety, as well as to demonstrate the potential value of ubiquitous indoor positioning and location-based information. 
+
+This repository extends Open3D-ML to integrate the Point Cloud City datasets and features the processing code, dataset pipeline, and machine learning model configuration files.
 
 Open3D-ML is an extension of Open3D for 3D machine learning tasks.
 It builds on top of the Open3D core library and extends it with machine learning
@@ -27,6 +29,20 @@ common tasks as well as pipelines for training.
 Open3D-ML-PointCloudCity works with **TensorFlow** and **PyTorch** to integrate easily into
 existing projects and also provides general functionality independent of
 ML frameworks such as data visualization.
+
+## Introduction
+A point cloud is a set of data points in a 3D coordinate system, each representing a spatial measurement which can be used to record and depict 3D shape and model objects and environments.
+Point Cloud City (PCC) was created by NIST Public Safety Innovation Accelerator Program (PSIAP) awardees who generated a catalog of annotated 3D indoor point clouds that can be used by industry, academia, and governments to advance research and development in the fields of indoor mapping, localization, and navigation for public safety. 
+
+This dataset has the potential to demonstrate the value of ubiquitous indoor positioning and location-based information for first responders but there are currently no standardized procedures for labeling public safety related objects in point clouds. Because of this each awardee used different methods and formats to label objects which poses a challenge for those who aim to utilize PCC for their work.
+This project addresses this problem by standardizing PCC and provides code to train and test state of the art 3D Machine Learning (ML) models using Open3D-ML, an extension of Open3D which is an open-source library used to develop software that works with 3D data. 
+
+The folder [/pscr_point_cloud_city](https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/tree/main/pscr_point_cloud_city) contains instructions and helper scripts for downloading PCC, unifying the classification labels, and translating the entire dataset into a single format which replicates the structure of one of the most widely used point cloud datasets in academia and industry.
+Once PCC is unified and formatted it can then be used to train and test state of the art 3D Machine Learning (ML) models using Open3D-ML, an extension of Open3D which is an open-source library used to develop software that works with 3D data.
+
+The focus of this repository is the implementation of semantic segmentation models trained to detect public safety related objects in indoor space, but the helper scripts are aimed to assist anyone using PCC for their work or research.
+
+<img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pcc_indoor_viz.png?raw=true"/>
 
 ## Installation
 
@@ -67,18 +83,29 @@ $ python -c "import open3d.ml.torch as ml3d"
 $ python -c "import open3d.ml.tf as ml3d"
 ```
 
+### Set Source Repository - *** Do this before running every time ***
+
+```bash
+# in /PointCloudCity-Open3D-ML/
+$ source set_open3d_ml_root.sh
+```
+
 If you need to use different versions of the ML frameworks or CUDA we recommend
 to
 [build Open3D from source](http://www.open3d.org/docs/release/compilation.html).
 
 ## Getting started with Point Cloud City and OPEN3D-ML
 
-### Set Source Repository
+#### [Enfield](https://experience.arcgis.com/experience/0c09b9e531d04dbdaeac2ec4cfe5e812/page/Products/?org=uri)
+#### [Memphis](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.nist.gov/system/files/documents/2019/11/01/point_cloud_city.pdf)
+#### [Hancock](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://nist.nvisionsolutions.com/Data%20Documentation.pdf)
 
-```bash
-# in /Open3D-ML_Point_Cloud_City/
-$ source set_open3d_ml_root.sh
-```
+### Point Cloud City - Classification Labels 
+---
+<p>
+  <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pccskitti_labels_names.PNG?raw=true" width="900" height="500" align="left"/> 
+  <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pcc_labels.PNG?raw=true" width="300" height="500"/>
+</p>
 
 ### Reading a dataset
 
@@ -104,8 +131,6 @@ print(all_split.get_data(0)['point'].shape)
 vis = ml3d.vis.Visualizer()
 vis.visualize_dataset(dataset, 'all', indices=range(100))
 ```
-<!-- ![Visualizer GIF](docs/images/getting_started_ml_visualizer.gif) -->
-<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/pcc_indoor_viz.png"/>
 
 
 ### Loading a config file
@@ -214,6 +239,25 @@ for details.
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="389" />
 </p>
 
+## Tasks and Algorithms
+
+### Semantic Segmentation
+
+For the task of semantic segmentation, we measure the performance of different methods using the mean intersection-over-union (mIoU) over all classes.
+The table shows the available models and datasets for the segmentation task and the respective scores. Each score links to the respective weight file.
+
+This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.08889) and was run using PyTorch.
+
+| Dataset | Metric - Mean | Stairway | Windows | Roof Access | Fire Sprinkler | Gas Shutoff|
+|--------------------|---------------|----------- |-------|--------------|-------------|---------|
+| Enfield | IoU | 37.8 |  50.1 |  23.7 | 20.1 | 68.6 
+|         |  F1  | 54.9 |  65.1 |  66.8 | 34.1 | 81.4 
+| Memphis | IoU | 6.7  |  97.6 |  0.00 | 0.05 | 0.00 
+|         |  F1  | 13.1 |  98.87 |  0.00 | 0.10 | 0.00 
+| PCC_SKITTI |  IoU | 28.9 |  92.7 |  42.8 | 77.8 | 76.7 
+|            |  F1   | 28.9 |  92.7 |  42.8 | 25.3 | 77.8 
+
+(*) Using weights trained on the Point Cloud City with mean calculated from test datasets. PCC_SKITTI is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
 
 
 ### Using predefined scripts
@@ -271,30 +315,9 @@ setting up a training pipeline or running a network on a dataset.
 ├─ scripts                # Demo scripts for training and dataset download scripts
 ```
 
-
-## Tasks and Algorithms
-
-### Semantic Segmentation
-
-For the task of semantic segmentation, we measure the performance of different methods using the mean intersection-over-union (mIoU) over all classes.
-The table shows the available models and datasets for the segmentation task and the respective scores. Each score links to the respective weight file.
-
-This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.08889) and was run using PyTorch.
-
-
-| Dataset | Metric - Mean | Stairway | Windows | Roof Access | Fire Sprinkler | Gas Shutoff|
-|--------------------|---------------|----------- |-------|--------------|-------------|---------|
-| Enfield | IoU | 37.8 |  50.1 |  23.7 | 20.1 | 68.6 
-|         |  F1  | 54.9 |  65.1 |  66.8 | 34.1 | 81.4 
-| Memphis | IoU | 6.7  |  97.6 |  0.00 | 0.05 | 0.00 
-|         |  F1  | 13.1 |  98.87 |  0.00 | 0.10 | 0.00 
-| PCC_SKITTI |  IoU | 28.9 |  92.7 |  42.8 | 77.8 | 76.7 
-|            |  F1   | 28.9 |  92.7 |  42.8 | 25.3 | 77.8 
-
-(*) Using weights trained on the Point Cloud City with mean calculated from test datasets. PCC_SKITTI is the combination of the Enfield and Memphis datasets with unified labels and formatted to replicate [Semantic KITTI's](http://www.semantic-kitti.org/) structure.
-
-
 ## Model Zoo
+
+For Point Cloud City trained Semantic Semgemntation weight download - [KPFCNN](https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/pscr_point_cloud_city/checkpoints/kpfcnn_pcc_ckpt_torch.zip)
 
 For a full list of all weight files see [model_weights.txt](https://storage.googleapis.com/open3d-releases/model-zoo/model_weights.txt)
 and the MD5 checksum file [model_weights.md5](https://storage.googleapis.com/open3d-releases/model-zoo/integrity.txt).
@@ -311,9 +334,7 @@ The following is a list of datasets for which we provide dataset reader classes.
 * Hancock ([project page](https://www.nist.gov/ctl/pscr/hancock-county-point-cloud-city))
 
 
-
 For downloading these datasets visit the respective webpages and have a look at the scripts in [`scripts/download_datasets`](https://github.com/isl-org/Open3D-ML/tree/master/scripts/download_datasets).
-
 
 
 ## How-tos
