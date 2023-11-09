@@ -16,9 +16,9 @@ width="420" />
 [**Installation**](#installation) | [**Get started**](#getting-started-with-point-cloud-city-and-open3d-ml) | [**Structure**](#repository-structure) | [**Tasks & Algorithms**](#tasks-and-algorithms) | [**Model Zoo**](model_zoo.md) | [**Datasets**](#datasets) | [**How-tos**](#how-tos) | [**Contribute**](#contribute)
 
 
-[Point Cloud City](https://www.nist.gov/ctl/pscr/funding-opportunities/past-funding-opportunities/psiap-point-cloud-city) was developed during the 2018 NIST Public Safety Innovation Accelerator Program - NOFO awardees generated an extensive catalog of annotated 3D indoor point clouds that can be used by industry, academia, and government to advance research and development in the areas of indoor mapping, localization and navigation for public safety, as well as to demonstrate the potential value of ubiquitous indoor positioning and location-based information. 
+[Point Cloud City (PCC)](https://www.nist.gov/ctl/pscr/funding-opportunities/past-funding-opportunities/psiap-point-cloud-city) was developed during the 2018 NIST Public Safety Innovation Accelerator Program - PCC awardees generated an extensive catalog of annotated 3D indoor point clouds that can be used by industry, academia, and government to advance research and development in the areas of indoor mapping, localization and navigation for public safety, as well as to demonstrate the potential value of ubiquitous indoor positioning and location-based information. 
 
-This repository extends Open3D-ML to integrate the Point Cloud City datasets and features the processing code, dataset pipeline, and machine learning model configuration files.
+This GitHub repository extends Open3D-ML to integrate the Point Cloud City datasets and features the processing code, dataset pipeline, and machine learning model configuration files.
 
 Open3D-ML is an extension of Open3D for 3D machine learning tasks.
 It builds on top of the Open3D core library and extends it with machine learning
@@ -31,13 +31,13 @@ existing projects and also provides general functionality independent of
 ML frameworks such as data visualization.
 
 ## Introduction
-A point cloud is a set of data points in a 3D coordinate system, each representing a spatial measurement which can be used to record and depict 3D shape and model objects and environments.
+A point cloud is a set of data points in a 3D coordinate system, each representing a spatial measurement which can be used to record and depict 3D shapes, model objects and simulate environments.
 Point Cloud City (PCC) was created by NIST Public Safety Innovation Accelerator Program (PSIAP) awardees who generated a catalog of annotated 3D indoor point clouds that can be used by industry, academia, and governments to advance research and development in the fields of indoor mapping, localization, and navigation for public safety. 
 
 This dataset has the potential to demonstrate the value of ubiquitous indoor positioning and location-based information for first responders but there are currently no standardized procedures for labeling public safety related objects in point clouds. Because of this each awardee used different methods and formats to label objects which poses a challenge for those who aim to utilize PCC for their work.
 This project addresses this problem by standardizing PCC and provides code to train and test state of the art 3D Machine Learning (ML) models using Open3D-ML, an extension of Open3D which is an open-source library used to develop software that works with 3D data. 
 
-The folder [/pscr_point_cloud_city](https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/tree/main/pscr_point_cloud_city) contains instructions and helper scripts for downloading PCC, unifying the classification labels, and translating the entire dataset into a single format which replicates the structure of one of the most widely used point cloud datasets in academia and industry.
+The folder [/pscr_point_cloud_city](https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/tree/main/pscr_point_cloud_city) contains instructions and helper scripts for downloading PCC, unifying the classification labels, and translating the entire dataset into a single format which replicates the structure of one of the most widely used point cloud datasets in academia and industry, [SemanticKITTI](http://www.semantic-kitti.org/).
 Once PCC is unified and formatted it can then be used to train and test state of the art 3D Machine Learning (ML) models using Open3D-ML, an extension of Open3D which is an open-source library used to develop software that works with 3D data.
 
 The focus of this repository is the implementation of semantic segmentation models trained to detect public safety related objects in indoor space, but the helper scripts are aimed to assist anyone using PCC for their work or research.
@@ -103,8 +103,9 @@ to
 ### Point Cloud City - Classification Labels 
 ---
 <p>
-  <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pccskitti_labels_names.PNG?raw=true" width="550" height="350" align="left"/> 
   <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pcc_labels.PNG?raw=true" width="250" height="350"/>
+  <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/pccskitti_labels_names.PNG?raw=true" width="550" height="350"/> <br> 
+  These tables represent the Memphis and Enfield labels on the right and how they were unified into PCC_Skitti on the left.
 </p>
 
 ### Reading a dataset
@@ -127,9 +128,9 @@ print(all_split.get_attr(0))
 # print the shape of the first point cloud
 print(all_split.get_data(0)['point'].shape)
 
-# show the first 100 frames using the visualizer
+# show the first point cloud using the visualizer
 vis = ml3d.vis.Visualizer()
-vis.visualize_dataset(dataset, 'all', indices=range(100))
+vis.visualize_dataset(dataset, 'all', indices=range(1))
 ```
 
 
@@ -227,7 +228,7 @@ for details.
 
 ### Semantic Segmentation
 
-For the task of semantic segmentation, we measure the performance of different methods using the mean intersection-over-union (mIoU) over all classes.
+For the task of semantic segmentation, we measure the performance of different methods using the mean intersection-over-union (mIoU) over each object class.
 The table shows the available models and datasets for the segmentation task and the respective scores. Each score links to the respective weight file.
 
 This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.08889) and was run using PyTorch.
@@ -246,15 +247,17 @@ This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.
 ### Ground Truth - Point Cloud City 
 ---
 <p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="400" height="386" /> 
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="400" height="386" /><br>
+  Ground truth points from a building with a staircase in PCC. 
 </p>
 
 ### KPCONV Semantic Segmentation Results - PCC-SKITTI
 ---
 <p float="left">
   <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="400" /> 
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="389" />
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="389" /><br>
+  Results from the KPCONV segmentation model trained on PCC_SKITTI. 
 </p>
 
 ### Using predefined scripts
@@ -265,12 +268,12 @@ the trouble of defining specific model and passing exact configuration.
 
 `python scripts/run_pipeline.py {tf/torch} -c <path-to-config> --pipeline {SemanticSegmentation/ObjectDetection} --<extra args>`
 
-You can use script for both semantic segmentation and object detection. You must specify
+Use the script for both semantic segmentation and object detection. You must specify
 either SemanticSegmentation or ObjectDetection in the `pipeline` parameter.
 Note that `extra args` will be prioritized over the same parameter present in the configuration file.
 So instead of changing param in config file, you may pass the same as a command line argument while launching the script.
 
-For eg.
+For example.
 ```
 # Launch training for RandLANet on SemanticKITTI_PCC with torch.
 python scripts/run_pipeline.py torch -c ml3d/configs/randlanet_semantickitti_pcc.yml --dataset.dataset_path <path-to-dataset> --pipeline SemanticSegmentation --dataset.use_cache True
@@ -335,7 +338,7 @@ For downloading these datasets visit the respective webpages and have a look at 
 
 ## How-tos
 
-* [Process Point Cloud City - SemanticKITTI Format](pscr_point_cloud_city/docs/process_pcc.ipynb#process-dataset)
+* [Process Point Cloud City - SemanticKITTI Format](pscr_point_cloud_city/how-to's/createPCC_SKITTI.ipynb)
 * [Visualize network predictions](docs/howtos.md#visualize-network-predictions)
 * [Visualize custom data](docs/howtos.md#visualize-custom-data)
 * [Adding a new model](docs/howtos.md#adding-a-new-model)
