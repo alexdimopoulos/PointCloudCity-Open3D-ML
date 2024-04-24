@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/tree/main/data/nist_pscr_logo.png" 
+<img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/main/data/nist_pscr_logo.png" 
 width="420" />
 <span style="font-size: 220%"><b>Point Cloud City on</b></span>
 <br>  
@@ -247,16 +247,16 @@ This table displays results using the model [KPCONV](https://arxiv.org/abs/1904.
 ### Ground Truth - Point Cloud City 
 ---
 <p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_gt70.png" width="400" />
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/gt_stairs_70.png" width="400" height="386" /><br>
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/main/data/enfield_student_union_kpconv_gt70.png" width="400" />
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/main/data/gt_stairs_70.png" width="400" height="386" /><br>
   Ground truth points from a building with a staircase in PCC. 
 </p>
 
 ### KPCONV Semantic Segmentation Results - PCC-SKITTI
 ---
 <p float="left">
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/enfield_student_union_kpconv_results70.png" width="400" /> 
-  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/master/data/results_stair.png" width="400" height="389" /><br>
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/main/data/enfield_student_union_kpconv_results70.png" width="400" /> 
+  <img src="https://raw.githubusercontent.com/alexdimopoulos/Open3D-ML_Point_Cloud_City/blob/main/data/results_stair.png" width="400" height="389" /><br>
   Results from the KPCONV segmentation model trained on PCC_SKITTI. 
 </p>
 
