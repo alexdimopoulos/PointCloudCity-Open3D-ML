@@ -1,7 +1,7 @@
 
 <p align="center">
-<img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/nist_pscr_logo.png?raw=tru" 
-width="420" />
+<!-- <img src="https://github.com/alexdimopoulos/PointCloudCity-Open3D-ML/blob/main/data/nist_pscr_logo.png?raw=tru" 
+width="420" /> -->
 <span style="font-size: 220%"><b>Point Cloud City on</b></span>
 <br>  
 <img src="https://raw.githubusercontent.com/isl-org/Open3D/master/docs/_static/open3d_logo_horizontal.png" width="320" />
